@@ -1,0 +1,75 @@
+---
+title       : BMI app
+subtitle    : Pitching the BMI app
+author      : Maree
+job         : Coursera student
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+
+## So what's this app about?
+
+This app calculates your Body Mass Index (BMI) and BMI weight class from:
+* your height in centimetres and 
+* your weight in kilograms.
+
+It calculates your BMI by taking your height in centimetres and dividing it by 100 to get the metres, then squaring your height in metres. It then divides your weight in kilograms by the square of your height in metres.
+
+* If this value is less than 18.5, your weight is classified as "Underweight". 
+* Over 18.5 but less than 25 is an "Acceptable" weight
+* Over 25 but less than 30 is "Overweight"
+* Greater than or equal to 30 is "Obese"
+
+--- .class #id
+
+## An example - calculating your BMI
+
+If you are 183 cm tall and weigh 75 kg, you're BMI is:
+
+
+```r
+calcBMI <- function(height, weight) weight/(height/100)^2
+bmi <- calcBMI(183, 75)
+bmi
+```
+
+```
+## [1] 22.4
+```
+
+
+--- .class #id
+
+## An example - your BMI class
+
+And your BMI class is
+
+
+```r
+bmiclass <- function(bmi) {
+    if (bmi < 18.5) 
+        "Underweight" else if (bmi < 25) 
+        "Acceptable" else if (bmi < 30) 
+        "Overweight" else "Obese"
+}
+class <- bmiclass(bmi)
+class
+```
+
+```
+## [1] "Acceptable"
+```
+
+--- .class #id
+
+## Why is this important?
+
+Knowing your BMI can be a useful guide about what is your healthy weight range. 
+
+If your fall outside of the acceptable weight range you could talk to your doctor about it. 
+
+Falling outside of acceptable weight range could make you more susceptible to diseases, so its a good thing to know and this application makes it easy to determine your weight class according to the BMI system.
+

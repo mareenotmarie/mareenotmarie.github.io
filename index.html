@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI app</title>
+  <meta charset="utf-8">
+  <meta name="description" content="BMI app">
+  <meta name="author" content="Maree">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>BMI app</h1>
+    <h2>Pitching the BMI app</h2>
+    <p>Maree<br/>Coursera student</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>So what&#39;s this app about?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>This app calculates your Body Mass Index (BMI) and BMI weight class from:</p>
+
+<ul>
+<li>your height in centimetres and </li>
+<li>your weight in kilograms.</li>
+</ul>
+
+<p>It calculates your BMI by taking your height in centimetres and dividing it by 100 to get the metres, then squaring your height in metres. It then divides your weight in kilograms by the square of your height in metres.</p>
+
+<ul>
+<li>If this value is less than 18.5, your weight is classified as &quot;Underweight&quot;. </li>
+<li>Over 18.5 but less than 25 is an &quot;Acceptable&quot; weight</li>
+<li>Over 25 but less than 30 is &quot;Overweight&quot;</li>
+<li>Greater than or equal to 30 is &quot;Obese&quot;</li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>An example - calculating your BMI</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>If you are 183 cm tall and weigh 75 kg, you&#39;re BMI is:</p>
+
+<pre><code class="r">calcBMI &lt;- function(height, weight) weight/(height/100)^2
+bmi &lt;- calcBMI(183, 75)
+bmi
+</code></pre>
+
+<pre><code>## [1] 22.4
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>An example - your BMI class</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>And your BMI class is</p>
+
+<pre><code class="r">bmiclass &lt;- function(bmi) {
+    if (bmi &lt; 18.5) 
+        &quot;Underweight&quot; else if (bmi &lt; 25) 
+        &quot;Acceptable&quot; else if (bmi &lt; 30) 
+        &quot;Overweight&quot; else &quot;Obese&quot;
+}
+class &lt;- bmiclass(bmi)
+class
+</code></pre>
+
+<pre><code>## [1] &quot;Acceptable&quot;
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Why is this important?</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Knowing your BMI can be a useful guide about what is your healthy weight range. </p>
+
+<p>If your fall outside of the acceptable weight range you could talk to your doctor about it. </p>
+
+<p>Falling outside of acceptable weight range could make you more susceptible to diseases, so its a good thing to know and this application makes it easy to determine your weight class according to the BMI system.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='So what&#39;s this app about?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='An example - calculating your BMI'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='An example - your BMI class'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Why is this important?'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
